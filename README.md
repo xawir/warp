@@ -1,2 +1,2 @@
 >add to hiddify:
-<sup>https://raw.githubusercontent.com/xawir/warp/main/Hiddify/sub#warp-hiddify-awir</sup>
+<sub>https://raw.githubusercontent.com/xawir/warp/main/Hiddify/sub#warp-hiddify-awir</sub>
