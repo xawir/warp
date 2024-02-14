@@ -1,1 +1,14 @@
-warp://[2606:4700:d0::3048:2732:1a72:2953]:878/?ifp=5-10
+{
+  "outbounds": [
+    {
+      "password": "",
+      "server": "127.0.0.1",
+      "server_port": 9150,
+      "username": "",
+      "version": "5",
+      "type": "socks",
+      "domain_strategy": "",
+      "tag": "proxy"
+    }
+  ]
+}
