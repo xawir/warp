@@ -30,6 +30,10 @@
     ],
     "rules": [
       {
+        "domain": "engage.cloudflareclient.com",
+        "server": "dns-direct"
+      },
+      {
         "domain_suffix": ".ir",
         "geosite": "ir",
         "server": "dns-direct"
@@ -44,6 +48,17 @@
     "independent_cache": true
   },
   "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
     {
       "type": "mixed",
       "tag": "mixed-in",
@@ -67,7 +82,8 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        " § 0"
+        "u0",
+        "u1"
       ],
       "default": "auto"
     },
@@ -75,7 +91,8 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        " § 0"
+        "u0",
+        "u1"
       ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m0s"
@@ -84,32 +101,38 @@
       "type": "wireguard",
       "tag": "u0",
       "local_address": [
-        "172.16.0.2/32",
-        "2606:4700:110:8fdc:9e66:73a2:66c:74a5/128"
+        "172.16.0.2/32","2606:4700:110:86ed:83e4:4cb1:c7f8:2aef/128"
       ],
-      "private_key": "eLmmmbdwuyXHmlz4rhlKDnENtlg0lVB6HdrIY/SmOFM=",
-      "server": "[2606:4700:d0::8b7:916c:88d3:afe6]",
-      "server_port": 4233,
+      "private_key": "YLLznV1dk/DMeSkrhXmvN+bdh/XXr1UZMp5iPXLgGUg=",
+      "server": "188.114.96.185",
+      "server_port": 939,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "",
+      "reserved": [
+        127,90,114
+      ],
       "mtu": 1280,
-      "fake_packets": "5-10"
+        "fake_packets": "8-15",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
     },
-        {
+    {
       "type": "wireguard",
       "tag": "u1",
       "detour": "u0",
       "local_address": [
-        "172.16.0.2/32",
-        "2606:4700:110:8f97:c06c:4ce3:f80e:94a4/128"
+        "172.16.0.2/32","2606:4700:110:8c41:7cbc:b82d:1acd:4fd/128"
       ],
-      "private_key": "wPvSdk8gpPsusv1iZjsjHlNFxoMLcBoshKGUFLCHKHk=",
-      "server": "[2606:4700:d0::3048:2732:1a72:2953]",
-      "server_port": 878,
+      "private_key": "OC8byGVfFaoLeBmYy0GSmbeeT9oQdo/PvJyw69CufWU=",
+      "server": "188.114.96.200",
+      "server_port": 1701,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "",
+      "reserved": [
+       133,87,18
+      ],
       "mtu": 1280,
-      "fake_packets": "5-10"
+        "fake_packets": "8-15",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
     },
     {
       "type": "dns",
