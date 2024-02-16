@@ -1,8 +1,16 @@
+//profile-title: base64:8J+UpSBXQVJQIPCflKU=
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//support-url: https://t.me/hiddify
+//profile-web-page-url: https://hiddify.com
+
 warp://188.114.96.158:934/?ifp=10-20&ifps=40-100&ifpd=10-20#Warp_10-20_40-100_10-20
 warp://162.159.192.107:934/?ifp=10-20&ifps=40-100&ifpd=30-50#Warp_10-20_40-100_30-50
 warp://162.159.195.229:934/?ifp=10-20&ifps=40-100&ifpd=300-500#Warp_10-20_40-100_300-500
 
 
-warp://[2606:4700:d1::717c:1917:9e7f:3318]:878/?ifp=5-10&ifps=40-100&ifpd=10-20#Warp_5-10_40-100_10-20
-warp://[2606:4700:d1::6677:dcdf:18ee:a0cb]:1002/?ifp=5-10&ifps=40-100&ifpd=30-50#Warp_5-10_40-100_30-50
+warp://[2606:4700:d0::f95d:f67d:fc0e:e540]:968/?ifp=5-10&ifps=40-100&ifpd=10-20#Warp_5-10_40-100_10-20
+warp://2606:4700:d1::717c:1917:9e7f:3318]:878/?ifp=5-10&ifps=40-100&ifpd=30-50#Warp_5-10_40-100_30-50
 warp://[2606:4700:d0::a1f7:450c:4bc5:c905]:2506/?ifp=5-10&ifps=40-100&ifpd=300-500#Warp_5-10_40-100_300-500
+
+warp://[2606:4700:d0::f95d:f67d:fc0e:e540]:968#WarpInWarp&&detour=warp://2606:4700:d1::717c:1917:9e7f:3318]:878fps=40-100&ifpd=10-200#Warp_10-20_40-100_10-200
