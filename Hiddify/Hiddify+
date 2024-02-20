@@ -9,12 +9,16 @@
       {
         "tag": "dns-remote",
         "address": "udp://1.1.1.1",
-        "address_resolver": "dns-direct",
-        "detour": "select"
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
       },
       {
         "tag": "dns-direct",
-        "address": "1.1.1.1",
+        "address": "local://1.1.1.1",
         "address_resolver": "dns-local",
         "detour": "direct"
       },
@@ -30,10 +34,6 @@
     ],
     "rules": [
       {
-        "domain": "engage.cloudflareclient.com",
-        "server": "dns-direct"
-      },
-      {
         "domain_suffix": ".ir",
         "geosite": "ir",
         "server": "dns-direct"
@@ -45,6 +45,20 @@
       }
     ],
     "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "2a06:98c1:3122::",
+        "2a06:98c1:3123::",
+        "188.114.98.0",
+        "188.114.99.0",
+        "104.18.202.232",
+        "104.18.203.232",
+        "2a06:98c1:3121::3",
+        "2a06:98c1:3120::3",
+        "188.114.96.3",
+        "188.114.97.3"
+      ]
+    },
     "independent_cache": true
   },
   "inbounds": [
@@ -53,6 +67,7 @@
       "tag": "tun-in",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/28",
+      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "endpoint_independent_nat": true,
@@ -62,7 +77,7 @@
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "0.0.0.0",
+      "listen": "127.0.0.1",
       "listen_port": 2334,
       "sniff": true,
       "sniff_override_destination": true
@@ -70,8 +85,8 @@
     {
       "type": "direct",
       "tag": "dns-in",
-      "listen": "0.0.0.0",
-      "listen_port": 6440,
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
       "override_address": "1.1.1.1",
       "override_port": 53
     }
@@ -82,8 +97,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "u0",
-        "u1"
+        "Warp_10-20_40-100_10-20 § 0",
+        "Warp_10-20_40-100_30-50 § 1",
+        "Warp_10-20_40-100_300-500 § 2",
+        "Warp_5-10_40-100_10-20 § 3",
+        "Warp_5-10_40-100_30-50 § 4",
+        "Warp_5-10_40-100_300-500 § 5",
+        "W1 § 6",
+        "W2 § 7"
       ],
       "default": "auto"
     },
@@ -91,46 +112,151 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "u0",
-        "u1"
+        "Warp_10-20_40-100_10-20 § 0",
+        "Warp_10-20_40-100_30-50 § 1",
+        "Warp_10-20_40-100_300-500 § 2",
+        "Warp_5-10_40-100_10-20 § 3",
+        "Warp_5-10_40-100_30-50 § 4",
+        "Warp_5-10_40-100_300-500 § 5",
+        "W1 § 6",
+        "W2 § 7"
       ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m0s"
     },
     {
       "type": "wireguard",
-      "tag": "u0",
+      "tag": "Warp_10-20_40-100_10-20 § 0",
       "local_address": [
-        "172.16.0.2/32","2606:4700:110:81d6:dd34:96c4:ad20:cbac/128"
+        "172.16.0.2/24",
+        "2606:4700:110:863b:23f3:bda:943c:4a4a/128"
       ],
-      "private_key": "2GMyxsqtJiWOrxd/EkQA6370J7qlkaaYDdhj0KFTTFk=",
-      "server": "2606:4700:d1::69fd:db61:b264:aff",
-      "server_port": 854,
+      "private_key": "6BRneCXk1DsePXmHqUCz3qx4GfMFLnbSaPVkAsyJcXw=",
+      "server": "2606:4700:d0::b976:ddb7:2688:f80a",
+      "server_port": 903,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": [
-        127,90,114
-      ],
+      "reserved": "AAAA",
       "mtu": 1280,
-        "fake_packets": "8-15",
+      "fake_packets": "10-20",
       "fake_packets_size": "40-100",
-      "fake_packets_delay": "20-250"
+      "fake_packets_delay": "10-20"
     },
     {
       "type": "wireguard",
-      "tag": "u1",
-      "detour": "u0",
+      "tag": "Warp_10-20_40-100_30-50 § 1",
       "local_address": [
-        "172.16.0.2/32","2606:4700:110:8827:5073:47dc:6995:bfba/128"
+        "172.16.0.2/24",
+        "2606:4700:110:8807:8448:a48e:2ea1:8091/128"
+      ],
+      "private_key": "EEp4QyYewDdNo4vLVXcOqpRRFADqE0Hio0ixNltp10s=",
+      "server": "2606:4700:d1::535e:a533:333f:440f",
+      "server_port": 878,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "10-20",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "30-50"
+    },
+    {
+      "type": "wireguard",
+      "tag": "Warp_10-20_40-100_300-500 § 2",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8340:1d8a:4247:e439:a48d/128"
+      ],
+      "private_key": "WNDEv6ZoJthgODQVCBxCfmMxIRokJ2xqhcdcoxbKY0M=",
+      "server": "2606:4700:d1::b47b:df15:a091:7478",
+      "server_port": 880,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "10-20",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "300-500"
+    },
+    {
+      "type": "wireguard",
+      "tag": "Warp_5-10_40-100_10-20 § 3",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8a45:76b2:6073:30fe:f7c1/128"
+      ],
+      "private_key": "aKrYZRJ18rY6gP+Dd1Xir5JlLvWtZx3f6r/XHZMmcHg=",
+      "server": "2606:4700:d0::5990:5813:a32:def2",
+      "server_port": 864,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "10-20"
+    },
+    {
+      "type": "wireguard",
+      "tag": "Warp_5-10_40-100_30-50 § 4",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8827:5073:47dc:6995:bfba/128"
       ],
       "private_key": "qLAxsayRQJoAAX0MY7t1jlOoYlTeNpOuYZMSiZO2dUA=",
       "server": "2606:4700:d0::b976:ddb7:2688:f80a",
       "server_port": 854,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": [
-       133,87,18
-      ],
+      "reserved": "AAAA",
       "mtu": 1280,
-        "fake_packets": "8-15",
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "30-50"
+    },
+    {
+      "type": "wireguard",
+      "tag": "Warp_5-10_40-100_300-500 § 5",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:81d6:dd34:96c4:ad20:cbac/128"
+      ],
+      "private_key": "2GMyxsqtJiWOrxd/EkQA6370J7qlkaaYDdhj0KFTTFk=",
+      "server": "2606:4700:d1::69fd:db61:b264:aff",
+      "server_port": 854,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "300-500"
+    },
+    {
+      "type": "wireguard",
+      "tag": "W1 § 6",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8845:f3c:b1a2:57dc:f4d/128"
+      ],
+      "private_key": "sM3cSc6C5mAwa2DVXoKepeTfOuFrc3Z78mWfhgHpzGM=",
+      "server": "2606:4700:d0::b976:ddb7:2688:f80a",
+      "server_port": 903,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "W2 § 7",
+      "detour": "W1 § 6",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8924:c6ae:356:559f:83a1/128"
+      ],
+      "private_key": "SBgRXk88GYvn1vYCh4nutaIqsMVuvmiwHgGR3cKYcUQ=",
+      "server": "2606:4700:d0::b976:ddb7:2688:f80a",
+      "server_port": 854,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1120,
       "fake_packets_size": "40-100",
       "fake_packets_delay": "20-250"
     },
@@ -141,6 +267,15 @@
     {
       "type": "direct",
       "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-20",
+        "sleep": "10-20"
+      }
     },
     {
       "type": "direct",
@@ -174,10 +309,6 @@
       {
         "clash_mode": "Global",
         "outbound": "select"
-      },
-      {
-        "geoip": "private",
-        "outbound": "bypass"
       },
       {
         "domain_suffix": ".ir",
