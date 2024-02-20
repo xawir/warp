@@ -227,40 +227,6 @@
       "fake_packets_delay": "300-500"
     },
     {
-      "type": "wireguard",
-      "tag": "W1 § 6",
-      "local_address": [
-        "172.16.0.2/24",
-        "2606:4700:110:8845:f3c:b1a2:57dc:f4d/128"
-      ],
-      "private_key": "sM3cSc6C5mAwa2DVXoKepeTfOuFrc3Z78mWfhgHpzGM=",
-      "server": "2606:4700:d0::b976:ddb7:2688:f80a",
-      "server_port": 903,
-      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1280,
-      "fake_packets": "5-10",
-      "fake_packets_size": "40-100",
-      "fake_packets_delay": "20-250"
-    },
-    {
-      "type": "wireguard",
-      "tag": "W2 § 7",
-      "detour": "W1 § 6",
-      "local_address": [
-        "172.16.0.2/24",
-        "2606:4700:110:8924:c6ae:356:559f:83a1/128"
-      ],
-      "private_key": "SBgRXk88GYvn1vYCh4nutaIqsMVuvmiwHgGR3cKYcUQ=",
-      "server": "2606:4700:d0::b976:ddb7:2688:f80a",
-      "server_port": 854,
-      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1120,
-      "fake_packets_size": "40-100",
-      "fake_packets_delay": "20-250"
-    },
-    {
       "type": "dns",
       "tag": "dns-out"
     },
