@@ -1,3 +1,9 @@
-warp://[2606:4700:d1::4f39:b6e8:1f78:8862]:1014/?ifp=1-5#warp-ir&&detour=warp://[2606:4700:d1::115e:94ec:3a33:ac9f]:955/?ifp=1-5#warp-main
-warp://[2606:4700:d0::7969:59d5:f198:3b1c]:955/?ifp=5-10
-warp://[2606:4700:d0::9cc9:8b66:24d9:98ff]:955/?ifp=5-10
+//profile-title: base64:V0FSUCDwn42R
+//profile-update-interval: 24
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
+//support-url: https://t.me/x_awir
+//profile-web-page-url: https://GitHub/xawir
+
+warp://auto#WarpInWarp ⭐️&&detour=warp://auto#Warp 🇮🇷
+warp://162.159.192.206:8319/?ifp=1-5#warp-ir&&detour=warp://162.159.192.167:7152/?ifp=1-5#warp-main
+warp://162.159.192.110:7152/?ifp=1-5#warp-ir&&detour=warp://162.159.192.110:8319/?ifp=1-5#warp-main
