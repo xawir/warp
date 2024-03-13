@@ -1,17 +1,93 @@
-//profile-title: base64:8J+UpSBXQVJQIPCflKU=
-//profile-update-interval: 1
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//support-url: https://t.me/hiddify
-//profile-web-page-url: https://hiddify.com
-
-warp://[2606:4700:d0::b976:ddb7:2688:f80a]:903/?ifp=10-20&ifps=40-100&ifpd=10-20#Warp_10-20_40-100_10-20
-warp://[2606:4700:d1::535e:a533:333f:440f]:878/?ifp=10-20&ifps=40-100&ifpd=30-50#Warp_10-20_40-100_30-50
-warp://[2606:4700:d1::b47b:df15:a091:7478]:880/?ifp=10-20&ifps=40-100&ifpd=300-500#Warp_10-20_40-100_300-500
-
-
-warp://[2606:4700:d0::5990:5813:a32:def2]:864/?ifp=5-10&ifps=40-100&ifpd=10-20#Warp_5-10_40-100_10-20
-warp://[2606:4700:d0::b976:ddb7:2688:f80a]:854/?ifp=5-10&ifps=40-100&ifpd=30-50#Warp_5-10_40-100_30-50
-warp://[2606:4700:d1::69fd:db61:b264:aff]:854/?ifp=5-10&ifps=40-100&ifpd=300-500#Warp_5-10_40-100_300-500
-
-
-warp://[2606:4700:d0::b976:ddb7:2688:f80a]:903/?ifp=5-10#W1&&detour=warp://[2606:4700:d0::b976:ddb7:2688:f80a]:854/?ifp=5-10#W2
+"outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "Warp🇮🇷 § 0",
+        "WarpInWarp🇩🇪 § 1",
+        "warp-ir § 2",
+        "warp-main § 3"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "Warp🇮🇷 § 0",
+        "WarpInWarp🇩🇪 § 1",
+        "warp-ir § 2",
+        "warp-main § 3"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "2m0s"
+    },
+    {
+      "type": "wireguard",
+      "tag": "Warp🇮🇷 § 0",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:83e3:1daa:86fb:57d4:b4d2/128"
+      ],
+      "private_key": "ABaa5JlE1fXKAja761hlSod+HO25/rRS2J8zIGzVFXI=",
+      "server": "162.159.192.96",
+      "server_port": 894,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "1-5",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "WarpInWarp🇩🇪 § 1",
+      "detour": "Warp🇮🇷 § 0",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:845f:271a:161f:ac7f:29a/128"
+      ],
+      "private_key": "2GTKfvTti5ehAoaK1J0JVdCK4ezOxNHGaUizMHewTWU=",
+      "server": "162.159.192.141",
+      "server_port": 939,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1120,
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "warp-ir § 2",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:809d:d9b6:6cc3:3870:51af/128"
+      ],
+      "private_key": "MA0eCht08jglqMTXUOzpERnBA5YHAUGaFbuBVrLXL3A=",
+      "server": "188.114.98.161",
+      "server_port": 4177,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "1-5",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "warp-main § 3",
+      "detour": "warp-ir § 2",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8065:d167:7024:68a0:d622/128"
+      ],
+      "private_key": "EDQtEr7qB94Ax9BaULIcRfwF5dC8wzlMwyyGiO8WN3w=",
+      "server": "162.159.204.56",
+      "server_port": 8742,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1120,
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
