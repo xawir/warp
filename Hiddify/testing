@@ -1,8 +1,4 @@
 "outbounds": [
-    {
-      "type": "selector",
-      "tag": "select",
-      "outbounds": [
         "auto",
         "Warp🇮🇷 § 0",
         "WarpInWarp🇩🇪 § 1",
