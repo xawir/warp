@@ -1,7 +1,8 @@
-## Hiddify Warp Sub
+# Hiddify Warp
 
-- add to hiddify 𖦝
+- add sub to hiddify 𖦝
 
 `https://raw.githubusercontent.com/xawir/warp/main/Hiddify/sub`
 
+## Scan Here 𖦝
 ![QR Code](https://github.com/xawir/warp/blob/main/qr-code.png "QR Code")
