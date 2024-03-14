@@ -1,4 +1,4 @@
-- add to hiddify
+- add to hiddify 𖦝
 
 `https://raw.githubusercontent.com/xawir/warp/main/Hiddify/sub`
 
