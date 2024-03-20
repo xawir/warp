@@ -23,8 +23,8 @@
       "type": "wireguard",
       "tag": "Warp-Main",
       "detour": "Warp-IR2",
-      "server": "188.114.96.6",
-      "server_port": 8742,
+      "server": "tel.ru",
+      "server_port": 2408,
       
       "local_address": [
           "172.16.0.2/32",
