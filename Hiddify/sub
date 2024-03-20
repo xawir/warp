@@ -4,6 +4,6 @@
 //support-url: https://github.com/xawir
 //profile-web-page-url: https://github.com/xawir
 
-warp://188.114.99.156:5956/?ifp=1-5#Warp 🇮🇷&&detour=warp://162.159.195.89:880/?ifp=1-5#WarpInWarp 🇩🇪
+warp://162.159.195.10:1002/?ifp=1-5#Warp 🇮🇷&&detour=warp://162.159.195.9:7156/?ifp=1-5#WarpInWarp 🇩🇪
 
 warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main
