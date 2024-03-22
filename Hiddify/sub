@@ -2,5 +2,5 @@
 //profile-update-interval: 1
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
 //profile-web-page-url: https://t.me/SirPishi 
-//last update on: 2024-03-22 03:52:11
-warp://162.159.195.220:1002?ifp=10-20&ifps=20-60&ifpd=5-10Warp 🇮🇷&&detour=warp://162.159.192.17:1843?ifp=10-20&ifps=20-60&ifpd=5-10#WarpInWarp 🇩🇪&&detour= warp://auto?#warp-ir&&detour=warp://auto?#warp-main
+//last update on: 2024-03-22 04:00:36
+warp://188.114.97.146:8886?ifp=10-20&ifps=20-60&ifpd=5-10#Warp 🇮🇷&&detour=warp://162.159.192.43:8319?ifp=10-20&ifps=20-60&ifpd=5-10#WarpInWarp 🇩🇪&&detour=warp://auto?#warp-ir&&detour=warp://auto?#warp-main
