@@ -1,19 +1,25 @@
-import ipaddress, platform, subprocess, os, datetime, base64
+import ipaddress
+import platform
+import subprocess
+import os
+import datetime
+import base64
 
 warp_cidr = [
-        '162.159.192.0/24',
-        '162.159.193.0/24',
-        '162.159.195.0/24',
-        '162.159.204.0/24',
-        '188.114.96.0/24',
-        '188.114.97.0/24',
-        '188.114.98.0/24',
-        '188.114.99.0/24'
-    ]
+    '162.159.192.0/24',
+    '162.159.193.0/24',
+    '162.159.195.0/24',
+    '162.159.204.0/24',
+    '188.114.96.0/24',
+    '188.114.97.0/24',
+    '188.114.98.0/24',
+    '188.114.99.0/24'
+]
 
 script_directory = os.path.dirname(__file__)
 ip_txt_path = os.path.join(script_directory, 'ip.txt')
 result_path = os.path.join(script_directory, 'result.csv')
+
 
 def create_ips():
     c = 0
@@ -28,12 +34,14 @@ def create_ips():
                 if c != total_ips:
                     file.write('\n')
 
+
 if os.path.exists(ip_txt_path):
-    print("ip.txt exist.")
+    print("ip.txt exists.")
 else:
     print('Creating ip.txt File.')
     create_ips()
     print('ip.txt File Created Successfully!')
+
 
 def arch_suffix():
     machine = platform.machine().lower()
@@ -47,6 +55,7 @@ def arch_suffix():
         return 's390x'
     else:
         raise ValueError("Unsupported CPU architecture")
+
 
 arch = arch_suffix()
 
@@ -78,11 +87,12 @@ with open(result_path, 'r') as csv_file:
         if c == 2:
             break
 
+
 def warp_ip():
     creation_time = os.path.getctime(result_path)
     formatted_time = datetime.datetime.fromtimestamp(creation_time).strftime("%Y-%m-%d %H:%M:%S")
     for i, ip in enumerate(best_ipies):
-            config_prefix = f"warp://{best_ipies[0]}?ifp=1-5#Warp 🇮🇷&&detour=warp://{best_ipies[0]}?ifp=1-5#WarpInWarp 🇩🇪&&detour=warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main"
+        config_prefix = f"warp://{best_ipies[0]}?ifp=1-5#Warp 🇮🇷&&detour=warp://{best_ipies[0]}?ifp=1-5#WarpInWarp 🇩🇪&&detour=warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main"
     return config_prefix, formatted_time
 
 
@@ -93,7 +103,7 @@ profile_web = "//profile-web-page-url: https://t.me/SirPishi \n"
 last_modified = "//last update on: " + warp_ip()[1] + "\n"
 configs = warp_ip()[0]
 with open('Hiddify/sub', 'w') as op:
-    op.write(title + update_interval + sub_info + profile_web  + last_modified + configs)
+    op.write(title + update_interval + sub_info + profile_web + last_modified + configs)
 
 with open('best_ipies.txt', 'w') as f:
     for ip in best_ipies:
