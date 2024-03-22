@@ -82,8 +82,8 @@ def warp_ip():
     creation_time = os.path.getctime(result_path)
     formatted_time = datetime.datetime.fromtimestamp(creation_time).strftime("%Y-%m-%d %H:%M:%S")
     for i, ip in enumerate(best_ipies):
-        config_prefix = f'warp://{best_ipies[0]}?ifp=10-20&ifps=20-60&ifpd=5-10#meow1&&detour=warp://{best_ipies[1]}?ifp=10-20&ifps=20-60&ifpd=5-10#meow2'
-    return config_prefix, formatted_time
+            config_prefix = f"warp://{best_ipies[0]}?ifp=1-5#Warp 🇮🇷&&detour=warp://{best_ipies[0]}?ifp=1-5#WarpInWarp 🇩🇪&&detour=warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main"
+return config_prefix, formatted_time
 
 
 title = "//profile-title: base64:" + base64.b64encode('xawir WARP 🐱'.encode('utf-8')).decode('utf-8') + "\n"
@@ -92,7 +92,7 @@ sub_info = "//subscription-userinfo: upload=0; download=0; total=107374182400000
 profile_web = "//profile-web-page-url: https://t.me/SirPishi \n"
 last_modified = "//last update on: " + warp_ip()[1] + "\n"
 configs = warp_ip()[0]
-with open('sub.json', 'w') as op:
+with open('Hiddify/sub', 'w') as op:
     op.write(title + update_interval + sub_info + profile_web  + last_modified + configs)
 
 with open('best_ipies.txt', 'w') as f:
