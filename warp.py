@@ -83,7 +83,7 @@ def warp_ip():
     formatted_time = datetime.datetime.fromtimestamp(creation_time).strftime("%Y-%m-%d %H:%M:%S")
     for i, ip in enumerate(best_ipies):
             config_prefix = f"warp://{best_ipies[0]}?ifp=1-5#Warp 🇮🇷&&detour=warp://{best_ipies[0]}?ifp=1-5#WarpInWarp 🇩🇪&&detour=warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main"
-return config_prefix, formatted_time
+    return config_prefix, formatted_time
 
 
 title = "//profile-title: base64:" + base64.b64encode('xawir WARP 🐱'.encode('utf-8')).decode('utf-8') + "\n"
