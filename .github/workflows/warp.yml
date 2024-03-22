@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   schedule:
-    - cron: '0 0,12 * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   build:
@@ -26,8 +26,8 @@ jobs:
       run: python warp.py
     - name: Commit and push changes
       run: |          
-          git config --global user.email "milaadfarzian@gmail.com"
-          git config --global user.name "miladfarzian"
+          git config --global user.email "xawiir@gmail.com"
+          git config --global user.name "xawir"
           git config credential.helper store
           git add -A
           git commit -m "Automatic update"
