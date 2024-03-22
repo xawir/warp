@@ -1,9 +1,6 @@
-//profile-title: base64:V0FSUCDinKg=
-//profile-update-interval: 24
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
-//support-url: https://github.com/xawir
-//profile-web-page-url: https://github.com/xawir
-
-warp://162.159.195.10:1002/?ifp=1-5#Warp 🇮🇷&&detour=warp://162.159.195.9:7156/?ifp=1-5#WarpInWarp 🇩🇪
-
-warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main
+//profile-title: base64:eGF3aXIgV0FSUCDwn5Cx
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//profile-web-page-url: https://t.me/SirPishi 
+//last update on: 2024-03-22 02:10:23
+warp://188.114.98.196:8886?ifp=1-5#Warp 🇮🇷&&detour=warp://188.114.98.196:8886?ifp=1-5#WarpInWarp 🇩🇪&&detour=warp://auto?ifp=1-5#warp-ir&&detour=warp://auto?ifp=1-5#warp-main
