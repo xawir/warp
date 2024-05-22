@@ -91,21 +91,21 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "IR",
-        "GR"
+        "xw",
+        "xw1"
       ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m0s"
     },
     {
       "type": "wireguard",
-      "tag": "IR",
+      "tag": "xw",
       "local_address": [
         "172.16.0.2/32","2606:4700:110:86ed:83e4:4cb1:c7f8:2aef/128"
       ],
-      "private_key": "4GRAjEQrSR5h307TPpmkcsZXV2NC5lg5msQNymW/FV4=",
-      "server": "188.114.98.21",
-      "server_port": 943,
+      "private_key": "YLLznV1dk/DMeSkrhXmvN+bdh/XXr1UZMp5iPXLgGUg=",
+      "server": "188.114.96.185",
+      "server_port": 939,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
       "reserved": [
         127,90,114
@@ -117,14 +117,14 @@
     },
     {
       "type": "wireguard",
-      "tag": "GR",
+      "tag": "xw1",
       "detour": "xw",
       "local_address": [
         "172.16.0.2/32","2606:4700:110:8c41:7cbc:b82d:1acd:4fd/128"
       ],
-      "private_key": "kORJpNGqNBUKO/M3p+9vWjQecvSWTTEPs6T0+SnmF0Y=",
-      "server": "162.159.192.159",
-      "server_port": 1010,
+      "private_key": "OC8byGVfFaoLeBmYy0GSmbeeT9oQdo/PvJyw69CufWU=",
+      "server": "188.114.96.200",
+      "server_port": 1701,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
       "reserved": [
        133,87,18
